@@ -23,40 +23,60 @@
       align-items: center;
       padding: 24px;
       color: #f0f0f0;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/background.jpg');
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1489599809505-7c8e1c35b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      position: relative;
+    }
+
+    /* Cinematic film grain effect */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBvcGFjaXR5PSIwLjAzIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9IjAuMiIvPjwvc3ZnPg==');
+      pointer-events: none;
+      z-index: 1;
     }
 
     .container {
       width: 100%;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.2);
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(16px);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(255, 255, 255, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+      border-radius: 24px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 
+                  0 8px 24px rgba(255, 255, 255, 0.1), 
+                  inset 0 1px 2px rgba(255, 255, 255, 0.3),
+                  0 0 0 1px rgba(255, 255, 255, 0.2);
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.3);
       transition: transform 0.3s ease, box-shadow 0.5s ease;
       padding: 32px;
       position: relative;
-      animation: containerFloat 6s ease-in-out infinite;
+      z-index: 2;
+      animation: containerFloat 8s ease-in-out infinite;
     }
 
     @keyframes containerFloat {
       0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-5px) scale(1.01); }
+      50% { transform: translateY(-8px) scale(1.01); }
     }
 
     .header {
       padding: 24px;
       text-align: center;
       background: rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
       margin-bottom: 24px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+                  inset 0 1px 1px rgba(255, 255, 255, 0.2);
     }
 
     .header::before {
@@ -67,7 +87,7 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-      animation: shimmer 3s infinite;
+      animation: shimmer 4s infinite;
     }
 
     @keyframes shimmer {
@@ -76,21 +96,23 @@
     }
 
     .header h1 {
-      font-size: 28px;
-      font-weight: 600;
+      font-size: 36px;
+      font-weight: 700;
       color: #f0f0f0;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
       position: relative;
       z-index: 1;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .header h1 i {
-      color: #5b86e5;
-      font-size: 28px;
+      color: #ff6b6b;
+      font-size: 36px;
       animation: iconPulse 2s infinite;
+      filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.5));
     }
 
     @keyframes iconPulse {
@@ -102,27 +124,31 @@
       margin-bottom: 24px;
     }
 
-    .input-group {
-      width: 100%;
+    .input-section {
       display: flex;
-      flex-wrap: nowrap;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
-    .input-group-btn {
-      flex-shrink: 0;
+    .button-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .btn-group {
-      display: flex;
+      flex: 1;
+      min-width: 200px;
     }
 
     .btn {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
       color: #f0f0f0;
       border: 1px solid rgba(255, 255, 255, 0.4);
-      padding: 10px 20px;
-      border-radius: 8px;
+      padding: 12px 20px;
+      border-radius: 50px;
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
@@ -131,52 +157,56 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      box-shadow: 0 4px 12px rgba(91, 134, 229, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.3), inset 0 -1px 2px rgba(0, 0, 0, 0.1);
-      margin-right: 5px;
-      white-space: nowrap;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.3),
+                  inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+      width: 100%;
       position: relative;
       overflow: hidden;
     }
 
-    .btn::after {
+    .btn::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(255,255,255,0.1), transparent);
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
       opacity: 0;
       transition: opacity 0.3s;
     }
 
-    .btn:hover::after {
+    .btn:hover::before {
       opacity: 1;
     }
 
     .btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 6px 16px rgba(91, 134, 229, 0.4), 0 3px 8px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.4), inset 0 -1px 2px rgba(0, 0, 0, 0.1);
-      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.4),
+                  inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
     }
 
     .btn:focus, .btn:active {
       outline: none;
-      box-shadow: 0 0 0 2px rgba(91, 134, 229, 0.5);
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.5);
     }
 
     .btn-default {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
       color: #f0f0f0;
     }
 
     .dropdown-menu {
-      background: rgba(50, 50, 70, 0.9);
+      background: rgba(30, 30, 40, 0.95);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
       animation: dropdownSlide 0.3s ease-out;
+      overflow: hidden;
     }
 
     @keyframes dropdownSlide {
@@ -186,10 +216,15 @@
 
     .dropdown-menu li a {
       color: #f0f0f0;
-      padding: 10px 20px;
+      padding: 12px 20px;
       transition: all 0.2s ease;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown-menu li:last-child a {
+      border-bottom: none;
     }
 
     .dropdown-menu li a::before {
@@ -199,7 +234,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(91, 134, 229, 0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.2), transparent);
       transition: left 0.5s;
     }
 
@@ -208,26 +243,35 @@
     }
 
     .dropdown-menu li a:hover {
-      background: rgba(91, 134, 229, 0.3);
+      background: rgba(255, 107, 107, 0.2);
       color: #fff;
     }
 
+    .search-input-container {
+      position: relative;
+      width: 100%;
+    }
+
     .form-control {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 8px;
+      border-radius: 50px;
       color: #f0f0f0;
-      padding: 10px 15px;
-      font-size: 16px;
+      padding: 16px 24px;
+      font-size: 18px;
       height: auto;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.2),
+                  0 0 0 1px rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
+      width: 100%;
+      backdrop-filter: blur(10px);
     }
 
     .form-control:focus {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: #5b86e5;
-      box-shadow: 0 0 0 2px rgba(91, 134, 229, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #ff6b6b;
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3), 
+                  inset 0 4px 12px rgba(0, 0, 0, 0.2);
       color: #f0f0f0;
     }
 
@@ -236,13 +280,19 @@
     }
 
     .search-btn {
-      background: rgba(91, 134, 229, 0.8);
-      border-color: rgba(91, 134, 229, 0.9);
-      padding: 10px 20px;
-      border-radius: 8px;
-      margin-left: 5px;
+      background: rgba(255, 107, 107, 0.8);
+      border-color: rgba(255, 107, 107, 0.9);
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 16px;
+      width: 100%;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
     }
 
     .search-btn::before {
@@ -261,7 +311,10 @@
     }
 
     .search-btn:hover {
-      background: rgba(91, 134, 229, 0.9);
+      background: rgba(255, 107, 107, 0.9);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(255, 107, 107, 0.5),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.4);
     }
 
     .footer {
@@ -285,7 +338,7 @@
       height: 2px;
       bottom: -5px;
       left: 0;
-      background: linear-gradient(90deg, #5b86e5, #36d1dc);
+      background: linear-gradient(90deg, #ff6b6b, #ffa36c);
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.5s ease;
@@ -313,10 +366,12 @@
 
     .info-section {
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 24px;
       margin-top: 20px;
       animation: fadeIn 0.8s ease-out;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+                  inset 0 1px 1px rgba(255, 255, 255, 0.1);
     }
 
     @keyframes fadeIn {
@@ -327,186 +382,203 @@
     .info-section h3 {
       color: #f0f0f0;
       margin-bottom: 15px;
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .info-section p {
       color: rgba(255, 255, 255, 0.8);
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 8px;
     }
 
     .recent-searches {
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 15px;
-      margin-top: 15px;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
       animation: fadeIn 1s ease-out;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+                  inset 0 1px 1px rgba(255, 255, 255, 0.1);
     }
 
     .recent-searches h4 {
       color: #f0f0f0;
-      margin-bottom: 10px;
-      font-size: 16px;
-      font-weight: 500;
+      margin-bottom: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .recent-search-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .search-tag {
-      background: rgba(91, 134, 229, 0.3);
-      border: 1px solid rgba(91, 134, 229, 0.5);
-      border-radius: 20px;
-      padding: 5px 12px;
-      font-size: 12px;
+      background: rgba(255, 107, 107, 0.3);
+      border: 1px solid rgba(255, 107, 107, 0.5);
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 14px;
       color: #f0f0f0;
       cursor: pointer;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .search-tag:hover {
-      background: rgba(91, 134, 229, 0.5);
+      background: rgba(255, 107, 107, 0.5);
       transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+                  inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ff6b6b;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .theme-toggle {
       position: fixed;
-      top: 14px;
-      right: 14px;
+      top: 20px;
+      right: 20px;
       z-index: 2147483647;
-      width: 52px;
-      height: 52px;
+      width: 60px;
+      height: 60px;
       padding: 0;
       border-radius: 50%;
       border: none;
-      background: linear-gradient(180deg,#ffffff,#f2f2f2);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
-      transition: transform .12s ease, box-shadow .12s ease;
-      backdrop-filter: blur(6px);
-      opacity: 0.98;
+      transition: transform .3s ease, box-shadow .3s ease;
+      color: #f0f0f0;
     }
 
     .theme-toggle:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.4);
     }
 
     .theme-toggle i {
-      font-size: 20px;
-      color: #111;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-number {
       font-size: 24px;
-      font-weight: 600;
-      color: #5b86e5;
     }
 
-    .stat-label {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.7);
-      margin-top: 5px;
-    }
-
-    .feature-highlights {
+    .movie-examples {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
     }
 
-    .feature-card {
+    .movie-example {
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 15px;
+      border-radius: 12px;
+      padding: 12px;
       text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .feature-card i {
-      font-size: 24px;
-      color: #5b86e5;
-      margin-bottom: 10px;
-    }
-
-    .feature-card h5 {
       font-size: 14px;
-      margin-bottom: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .feature-card p {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.7);
+    .movie-example:hover {
+      background: rgba(255, 107, 107, 0.2);
+      transform: translateY(-3px);
     }
 
     @media (max-width: 768px) {
       .container {
-        padding: 16px;
+        padding: 20px;
       }
       .header {
-        padding: 16px;
+        padding: 20px;
       }
       .header h1 {
-        font-size: 24px;
+        font-size: 28px;
       }
-      .input-group {
-        flex-wrap: wrap;
+      .button-row {
+        flex-direction: column;
       }
       .btn-group {
-        width: 100%;
-        margin-bottom: 10px;
+        min-width: 100%;
       }
-      .btn-group .btn {
-        flex: 1;
-        margin-bottom: 5px;
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .form-control {
-        width: 100%;
-        margin-bottom: 10px;
+      .movie-examples {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .search-btn {
-        width: 100%;
-        margin-left: 0;
-      }
-      .feature-highlights {
-        grid-template-columns: 1fr;
-      }
+    }
+
+    /* Shake animation for empty search */
+    .shake {
+      animation: shake 0.5s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1><i class="fas fa-search"></i> Open Directory Search</h1>
-      <p style="color: rgba(255, 255, 255, 0.8); margin-top: 10px;">Find direct download links for almost anything</p>
+      <h1><i class="fas fa-film"></i> Movie Search Pro</h1>
+      <p style="color: rgba(255, 255, 255, 0.8); margin-top: 10px; font-size: 18px;">Find direct download links for movies & TV shows</p>
     </div>
 
     <div class="search-form">
@@ -515,23 +587,23 @@
         <input type="hidden" name="resType" value="" id="resType">
         <input type="hidden" name="engine" value="google" id="engine">
         
-        <div class="input-group">
-          <div class="btn-group">
-            <div class="input-group-btn">
+        <div class="input-section">
+          <div class="button-row">
+            <div class="btn-group">
               <button id="ddbutton" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="glyphicon glyphicon-film" aria-hidden="true"></span> TV/Movies <span class="caret"></span>
+                <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Movies/TV Shows <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="#" onclick="setFiletype('mkv|mp4|avi|mov|mpg|wmv|divx|mpeg', 'TV/Movies', 'video', 'film')"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> TV/Movies/Video</a></li>
+                <li><a href="#" onclick="setFiletype('mkv|mp4|avi|mov|mpg|wmv|divx|mpeg', 'Movies/TV Shows', 'video', 'film')"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Movies/TV Shows</a></li>
                 <li><a href="#" onclick="setFiletype('MOBI|CBZ|CBR|CBC|CHM|EPUB|FB2|LIT|LRF|ODT|PDF|PRC|PDB|PML|RB|RTF|TCR|DOC|DOCX', 'Books', 'ebook', 'book')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Books</a></li>
                 <li><a href="#" onclick="setFiletype('mp3|wav|ac3|ogg|flac|wma|m4a|aac|mod', 'Music', 'audio', 'music')"><span class="glyphicon glyphicon-music" aria-hidden="true"></span> Music</a></li>
-                <li><a href="#" onclick="setFiletype('exe|iso|dmg|tar|7z|bz2|gz|rar|zip|apk', 'Software/ISO/DMG/Games', 'archive', 'cd')"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span> Software/ISO/DMG/Games</a></li>
+                <li><a href="#" onclick="setFiletype('exe|iso|dmg|tar|7z|bz2|gz|rar|zip|apk', 'Software/Games', 'archive', 'cd')"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span> Software/Games</a></li>
                 <li><a href="#" onclick="setFiletype('jpg|png|bmp|gif|tif|tiff|psd', 'Images', 'picture', 'picture')"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Images</a></li>
                 <li><a href="#" onclick="setFiletype('-1', 'Other', 'all', 'asterisk')"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Other</a></li>
               </ul>
             </div>
             
-            <div class="input-group-btn">
+            <div class="btn-group">
               <button id="egbutton" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Google <span class="caret"></span>
               </button>
@@ -545,21 +617,28 @@
             </div>
           </div>
           
-          <input type="text" name="query" value="" id="query" class="form-control" placeholder="Search anything e.g The.Blacklist.S01.E01">
+          <div class="search-input-container">
+            <input type="text" name="query" value="" id="query" class="form-control" placeholder="Search for movies e.g. The.Blacklist.S01.E01 or Avatar.2009">
+          </div>
           
-          <span class="input-group-btn">
-            <button type="submit" class="btn search-btn">
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
-            </button>
-          </span>
+          <button type="submit" class="btn search-btn">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search Movies
+          </button>
         </div>
       </form>
     </div>
 
-    <div class="recent-searches">
-      <h4>Recent Searches</h4>
-      <div class="recent-search-tags" id="recentSearches">
-        <!-- Recent searches will be populated here -->
+    <div class="info-section">
+      <h3><i class="fas fa-lightbulb"></i> Popular Movie Searches</h3>
+      <div class="movie-examples">
+        <div class="movie-example" onclick="setMovieExample('Avatar.2009')">Avatar (2009)</div>
+        <div class="movie-example" onclick="setMovieExample('The.Shawshank.Redemption.1994')">Shawshank Redemption</div>
+        <div class="movie-example" onclick="setMovieExample('The.Dark.Knight.2008')">The Dark Knight</div>
+        <div class="movie-example" onclick="setMovieExample('Inception.2010')">Inception</div>
+        <div class="movie-example" onclick="setMovieExample('Pulp.Fiction.1994')">Pulp Fiction</div>
+        <div class="movie-example" onclick="setMovieExample('The.Godfather.1972')">The Godfather</div>
+        <div class="movie-example" onclick="setMovieExample('Forrest.Gump.1994')">Forrest Gump</div>
+        <div class="movie-example" onclick="setMovieExample('The.Matrix.1999')">The Matrix</div>
       </div>
     </div>
     
@@ -576,41 +655,29 @@
         <div class="stat-number" id="userCount">0</div>
         <div class="stat-label">Active Users</div>
       </div>
+      <div class="stat-item">
+        <div class="stat-number" id="movieCount">0</div>
+        <div class="stat-label">Movies Indexed</div>
+      </div>
     </div>
-    
-    <div class="feature-highlights">
-      <div class="feature-card">
-        <i class="fas fa-bolt"></i>
-        <h5>Fast Results</h5>
-        <p>Get instant access to direct download links</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-shield-alt"></i>
-        <h5>Safe & Secure</h5>
-        <p>All searches are private and secure</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-filter"></i>
-        <h5>Smart Filtering</h5>
-        <p>Find exactly what you're looking for</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-infinity"></i>
-        <h5>Unlimited Access</h5>
-        <p>No restrictions on searches or downloads</p>
+
+    <div class="recent-searches">
+      <h4><i class="fas fa-history"></i> Recent Searches</h4>
+      <div class="recent-search-tags" id="recentSearches">
+        <!-- Recent searches will be populated here -->
       </div>
     </div>
     
     <div class="info-section">
-      <h3>How to use:</h3>
-      <p>1. Select a file type from the dropdown</p>
-      <p>2. Choose your preferred search engine</p>
-      <p>3. Enter your search query and click Search</p>
-      <p>4. Find direct download links in the search results</p>
+      <h3><i class="fas fa-question-circle"></i> How to use:</h3>
+      <p>1. Select "Movies/TV Shows" from the dropdown (already selected)</p>
+      <p>2. Choose your preferred search engine (Google recommended)</p>
+      <p>3. Enter movie name with year or TV show with season/episode</p>
+      <p>4. Click Search to find direct download links</p>
     </div>
     
     <div class="footer">
-      <div class="footer-text">Secure • Free • Professional | Made with <span style="color: #ff4d4d;">❤️</span> by <a href="https://www.instagram.com/sandeep_yadav_._._" target="_blank" style="color: #5b86e5; text-decoration: none;">Sandeep</a></div>
+      <div class="footer-text">Cinematic • Fast • Professional | Made with <span style="color: #ff6b6b;">❤️</span> by <a href="https://www.instagram.com/sandeep_yadav_._._" target="_blank" style="color: #ffa36c; text-decoration: none;">Sandeep</a></div>
     </div>
   </div>
 
@@ -621,32 +688,32 @@
     aria-label="Go back"
     onclick="(function(){ if(window.history.length>1){ history.back(); } else if(document.referrer){ location.href = document.referrer; } else { location.href = '/'; } })();"
     onkeydown="if(event.key==='Enter' || event.code==='Space'){ event.preventDefault(); (function(){ if(window.history.length>1){ history.back(); } else if(document.referrer){ location.href = document.referrer; } else { location.href = '/'; } })(); }"
-    onmouseenter="this.style.transform='translateY(-2px) scale(1.02)'; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.25)';"
-    onmouseleave="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.18)';"
+    onmouseenter="this.style.transform='translateY(-3px) scale(1.05)'; this.style.boxShadow='0 12px 24px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4)';"
+    onmouseleave="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3)';"
     style="
       position:fixed;
-      top:14px;
-      left:14px;
+      top:20px;
+      left:20px;
       z-index:2147483647;
-      width:52px;
-      height:52px;
+      width:60px;
+      height:60px;
       padding:0;
       border-radius:50%;
       border:none;
-      background:linear-gradient(180deg,#ffffff,#f2f2f2);
-      box-shadow:0 4px 12px rgba(0,0,0,0.18);
+      background:rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      box-shadow:0 8px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3);
       display:flex;
       align-items:center;
       justify-content:center;
       cursor:pointer;
       -webkit-tap-highlight-color:transparent;
-      transition:transform .12s ease, box-shadow .12s ease;
-      backdrop-filter:blur(6px);
-      opacity:0.98;
+      transition:transform .3s ease, box-shadow .3s ease;
+      color: #f0f0f0;
     "
   >
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <path d="M15 18l-6-6 6-6" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
     </svg>
   </button>
 
@@ -661,7 +728,7 @@
   <script>
     // Initialize with default values
     document.addEventListener('DOMContentLoaded', function() {
-      setFiletype('mkv|mp4|avi|mov|mpg|wmv|divx|mpeg', 'TV/Movies', 'video', 'film');
+      setFiletype('mkv|mp4|avi|mov|mpg|wmv|divx|mpeg', 'Movies/TV Shows', 'video', 'film');
       setEngine('google');
       updateStats();
       loadRecentSearches();
@@ -679,25 +746,25 @@
     });
 
     function setFiletype(fileType, buttonData, resType, glyph) {
-      var defaultString = 'Search anything';
+      var defaultString = 'Search for movies';
       if (fileType==-1) {
         fileType="";
       }
       switch(glyph) {
         case 'film':
-          $("#query").prop('placeholder',defaultString+' eg. The.Blacklist.S01');
+          $("#query").prop('placeholder',defaultString+' e.g. The.Blacklist.S01.E01 or Avatar.2009');
           break;
         case 'music':
-          $("#query").prop('placeholder',defaultString+' eg. K.Flay discography');
+          $("#query").prop('placeholder',defaultString+' e.g. K.Flay discography');
           break;
         case 'book':
-          $("#query").prop('placeholder',defaultString+' eg. 1985');
+          $("#query").prop('placeholder',defaultString+' e.g. 1985');
           break;
         case 'cd':
-          $("#query").prop('placeholder',defaultString+' eg. GTA V');
+          $("#query").prop('placeholder',defaultString+' e.g. GTA V');
           break;
         case 'picture':
-          $("#query").prop('placeholder',defaultString+' eg. Donald Trump');
+          $("#query").prop('placeholder',defaultString+' e.g. Donald Trump');
           break;
         case 'asterisk':
           $("#query").prop('placeholder',defaultString);
@@ -713,6 +780,11 @@
       $("#engine").prop('value',engine);
       $("#egbutton").html('<span class="glyphicon glyphicon-search" aria-hidden="true"></span> '+engine+' <span class="caret"></span>');
       $("#query").focus();
+    }
+    
+    function setMovieExample(movieName) {
+      document.getElementById('query').value = movieName;
+      document.getElementById('query').focus();
     }
     
     function startSearch (engine = '') {
@@ -806,7 +878,7 @@
       container.innerHTML = '';
       
       if (recentSearches.length === 0) {
-        container.innerHTML = '<p style="color: rgba(255,255,255,0.5); font-size: 12px;">No recent searches</p>';
+        container.innerHTML = '<p style="color: rgba(255,255,255,0.5); font-size: 14px;">No recent searches</p>';
         return;
       }
       
@@ -838,11 +910,13 @@
       let searchCount = parseInt(localStorage.getItem('searchCount')) || 0;
       let fileCount = Math.floor(Math.random() * 10000) + 5000; // Simulated data
       let userCount = Math.floor(Math.random() * 1000) + 500; // Simulated data
+      let movieCount = Math.floor(Math.random() * 50000) + 25000; // Simulated data
       
       // Update display
       document.getElementById('searchCount').textContent = searchCount;
       document.getElementById('fileCount').textContent = fileCount.toLocaleString();
       document.getElementById('userCount').textContent = userCount.toLocaleString();
+      document.getElementById('movieCount').textContent = movieCount.toLocaleString();
     }
     
     function updateSearchCount() {
@@ -860,13 +934,13 @@
       const themeIcon = document.querySelector('#themeToggle i');
       if (theme === 'light') {
         themeIcon.className = 'fas fa-sun';
-        document.body.style.background = 'linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("images/background.jpg")';
+        document.body.style.background = 'linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("https://images.unsplash.com/photo-1489599809505-7c8e1c35b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")';
         document.body.style.backgroundSize = 'cover';
         document.body.style.backgroundPosition = 'center';
         document.body.style.backgroundAttachment = 'fixed';
       } else {
         themeIcon.className = 'fas fa-moon';
-        document.body.style.background = 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("images/background.jpg")';
+        document.body.style.background = 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1489599809505-7c8e1c35b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")';
         document.body.style.backgroundSize = 'cover';
         document.body.style.backgroundPosition = 'center';
         document.body.style.backgroundAttachment = 'fixed';
