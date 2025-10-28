@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open Directory Search</title>
+  <title>Universal File Search Pro</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,7 +14,6 @@
       box-sizing: border-box;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
-
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       min-height: 100vh;
@@ -29,17 +28,15 @@
       background-attachment: fixed;
       position: relative;
     }
-
-   
-
+  
     .container {
       width: 100%;
       max-width: 900px;
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(16px);
       border-radius: 24px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 
-                  0 8px 24px rgba(255, 255, 255, 0.1), 
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3),
+                  0 8px 24px rgba(255, 255, 255, 0.1),
                   inset 0 1px 2px rgba(255, 255, 255, 0.3),
                   0 0 0 1px rgba(255, 255, 255, 0.2);
       overflow: hidden;
@@ -50,12 +47,10 @@
       z-index: 2;
       animation: containerFloat 8s ease-in-out infinite;
     }
-
     @keyframes containerFloat {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-8px) scale(1.01); }
     }
-
     .header {
       padding: 24px;
       text-align: center;
@@ -67,7 +62,6 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
                   inset 0 1px 1px rgba(255, 255, 255, 0.2);
     }
-
     .header::before {
       content: '';
       position: absolute;
@@ -78,12 +72,10 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
       animation: shimmer 4s infinite;
     }
-
     @keyframes shimmer {
       0% { left: -100%; }
       100% { left: 100%; }
     }
-
     .header h1 {
       font-size: 36px;
       font-weight: 700;
@@ -96,41 +88,34 @@
       z-index: 1;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
-
     .header h1 i {
       color: #ff6b6b;
       font-size: 36px;
       animation: iconPulse 2s infinite;
       filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.5));
     }
-
     @keyframes iconPulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.1); }
     }
-
     .search-form {
       margin-bottom: 24px;
     }
-
     .input-section {
       display: flex;
       flex-direction: column;
       gap: 16px;
       margin-bottom: 20px;
     }
-
     .button-row {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
-
     .btn-group {
       flex: 1;
       min-width: 200px;
     }
-
     .btn {
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
@@ -153,7 +138,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .btn::before {
       content: '';
       position: absolute;
@@ -165,11 +149,9 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
-
     .btn:hover::before {
       opacity: 1;
     }
-
     .btn:hover {
       background: rgba(255, 255, 255, 0.25);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3),
@@ -177,17 +159,14 @@
                   inset 0 -1px 2px rgba(0, 0, 0, 0.1);
       transform: translateY(-3px);
     }
-
     .btn:focus, .btn:active {
       outline: none;
       box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.5);
     }
-
     .btn-default {
       background: rgba(255, 255, 255, 0.1);
       color: #f0f0f0;
     }
-
     .dropdown-menu {
       background: rgba(30, 30, 40, 0.95);
       backdrop-filter: blur(10px);
@@ -197,12 +176,10 @@
       animation: dropdownSlide 0.3s ease-out;
       overflow: hidden;
     }
-
     @keyframes dropdownSlide {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .dropdown-menu li a {
       color: #f0f0f0;
       padding: 12px 20px;
@@ -211,11 +188,9 @@
       overflow: hidden;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-
     .dropdown-menu li:last-child a {
       border-bottom: none;
     }
-
     .dropdown-menu li a::before {
       content: '';
       position: absolute;
@@ -226,21 +201,17 @@
       background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.2), transparent);
       transition: left 0.5s;
     }
-
     .dropdown-menu li a:hover::before {
       left: 100%;
     }
-
     .dropdown-menu li a:hover {
       background: rgba(255, 107, 107, 0.2);
       color: #fff;
     }
-
     .search-input-container {
       position: relative;
       width: 100%;
     }
-
     .form-control {
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -255,19 +226,16 @@
       width: 100%;
       backdrop-filter: blur(10px);
     }
-
     .form-control:focus {
       background: rgba(255, 255, 255, 0.15);
       border-color: #ff6b6b;
-      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3), 
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3),
                   inset 0 4px 12px rgba(0, 0, 0, 0.2);
       color: #f0f0f0;
     }
-
     .form-control::placeholder {
       color: rgba(255, 255, 255, 0.7);
     }
-
     .search-btn {
       background: rgba(255, 107, 107, 0.8);
       border-color: rgba(255, 107, 107, 0.9);
@@ -283,7 +251,6 @@
                   inset 0 1px 2px rgba(255, 255, 255, 0.3);
       transition: all 0.3s ease;
     }
-
     .search-btn::before {
       content: '';
       position: absolute;
@@ -294,18 +261,15 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       transition: left 0.5s;
     }
-
     .search-btn:hover::before {
       left: 100%;
     }
-
     .search-btn:hover {
       background: rgba(255, 107, 107, 0.9);
       transform: translateY(-3px);
       box-shadow: 0 12px 24px rgba(255, 107, 107, 0.5),
                   inset 0 1px 2px rgba(255, 255, 255, 0.4);
     }
-
     .footer {
       margin-top: 30px;
       text-align: center;
@@ -314,12 +278,11 @@
       padding: 15px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
-
     .footer-text {
       display: inline-block;
       position: relative;
     }
-    
+   
     .footer-text::after {
       content: '';
       position: absolute;
@@ -333,7 +296,7 @@
       transition: transform 0.5s ease;
       animation: continuousLine 3s infinite;
     }
-    
+   
     @keyframes continuousLine {
       0% {
         transform: scaleX(0);
@@ -352,7 +315,6 @@
         transform-origin: bottom right;
       }
     }
-
     .info-section {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 16px;
@@ -362,12 +324,10 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
                   inset 0 1px 1px rgba(255, 255, 255, 0.1);
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .info-section h3 {
       color: #f0f0f0;
       margin-bottom: 15px;
@@ -377,14 +337,12 @@
       align-items: center;
       gap: 10px;
     }
-
     .info-section p {
       color: rgba(255, 255, 255, 0.8);
       font-size: 16px;
       line-height: 1.6;
       margin-bottom: 8px;
     }
-
     .recent-searches {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 16px;
@@ -394,7 +352,6 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
                   inset 0 1px 1px rgba(255, 255, 255, 0.1);
     }
-
     .recent-searches h4 {
       color: #f0f0f0;
       margin-bottom: 15px;
@@ -404,13 +361,11 @@
       align-items: center;
       gap: 10px;
     }
-
     .recent-search-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
-
     .search-tag {
       background: rgba(255, 107, 107, 0.3);
       border: 1px solid rgba(255, 107, 107, 0.5);
@@ -422,26 +377,22 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
     .search-tag:hover {
       background: rgba(255, 107, 107, 0.5);
       transform: scale(1.05);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
-
     .stats {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       margin-top: 20px;
     }
-
     @media (min-width: 768px) {
       .stats {
         grid-template-columns: repeat(4, 1fr);
       }
     }
-
     .stat-item {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 16px;
@@ -452,12 +403,10 @@
       transition: all 0.3s ease;
       animation: fadeIn 1.2s ease-out;
     }
-
     .stat-item:hover {
       transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.15);
     }
-
     .stat-number {
       font-size: 32px;
       font-weight: 700;
@@ -465,53 +414,17 @@
       margin-bottom: 8px;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
-
     .stat-label {
       font-size: 14px;
       color: rgba(255, 255, 255, 0.8);
     }
-
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 2147483647;
-      width: 60px;
-      height: 60px;
-      padding: 0;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3),
-                  inset 0 1px 2px rgba(255, 255, 255, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform .3s ease, box-shadow .3s ease;
-      color: #f0f0f0;
-    }
-
-    .theme-toggle:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.4),
-                  inset 0 1px 2px rgba(255, 255, 255, 0.4);
-    }
-
-    .theme-toggle i {
-      font-size: 24px;
-    }
-
-    .movie-examples {
+    .file-examples {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 12px;
       margin-top: 15px;
     }
-
-    .movie-example {
+    .file-example {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       padding: 12px;
@@ -521,12 +434,10 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
-    .movie-example:hover {
+    .file-example:hover {
       background: rgba(255, 107, 107, 0.2);
       transform: translateY(-3px);
     }
-
     @media (max-width: 768px) {
       .container {
         padding: 20px;
@@ -546,36 +457,57 @@
       .stats {
         grid-template-columns: repeat(2, 1fr);
       }
-      .movie-examples {
+      .file-examples {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
     /* Shake animation for empty search */
     .shake {
       animation: shake 0.5s ease-in-out;
     }
-
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
       20%, 60% { transform: translateX(-8px); }
       40%, 80% { transform: translateX(8px); }
+    }
+
+    /* Improved design: Added subtle glow to container and better contrast for readability */
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+      border-radius: 26px;
+      z-index: -1;
+      opacity: 0.3;
+      animation: borderRotate 3s linear infinite;
+    }
+    @keyframes borderRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Enhanced input glow on focus */
+    .form-control:focus {
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3), inset 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 107, 107, 0.2);
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1><i class="fas fa-film"></i> Movie Search Pro</h1>
-      <p style="color: rgba(255, 255, 255, 0.8); margin-top: 10px; font-size: 18px;">Find direct download links for movies & TV shows</p>
+      <h1><i class="fas fa-search"></i> Universal File Search Pro</h1>
+      <p style="color: rgba(255, 255, 255, 0.8); margin-top: 10px; font-size: 18px;">Find direct download links for any file type</p>
     </div>
-
     <div class="search-form">
       <form id="searchForm" onsubmit="event.preventDefault(); startSearch();">
         <input type="hidden" name="fileType" value="" id="fileType">
         <input type="hidden" name="resType" value="" id="resType">
         <input type="hidden" name="engine" value="google" id="engine">
-        
+       
         <div class="input-section">
           <div class="button-row">
             <div class="btn-group">
@@ -591,7 +523,7 @@
                 <li><a href="#" onclick="setFiletype('-1', 'Other', 'all', 'asterisk')"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Other</a></li>
               </ul>
             </div>
-            
+           
             <div class="btn-group">
               <button id="egbutton" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Google <span class="caret"></span>
@@ -605,32 +537,31 @@
               </ul>
             </div>
           </div>
-          
+         
           <div class="search-input-container">
-            <input type="text" name="query" value="" id="query" class="form-control" placeholder="Search for movies e.g. The.Blacklist.S01.E01 or Avatar.2009">
+            <input type="text" name="query" value="" id="query" class="form-control" placeholder="Search for any file e.g. Avengers.2012 or software_name">
           </div>
-          
+         
           <button type="submit" class="btn search-btn">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search Movies
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search Files
           </button>
         </div>
       </form>
     </div>
-
     <div class="info-section">
-      <h3><i class="fas fa-lightbulb"></i> Popular Movie Searches</h3>
-      <div class="movie-examples">
-        <div class="movie-example" onclick="setMovieExample('Avatar.2009')">Avatar (2009)</div>
-        <div class="movie-example" onclick="setMovieExample('The.Shawshank.Redemption.1994')">Shawshank Redemption</div>
-        <div class="movie-example" onclick="setMovieExample('The.Dark.Knight.2008')">The Dark Knight</div>
-        <div class="movie-example" onclick="setMovieExample('Inception.2010')">Inception</div>
-        <div class="movie-example" onclick="setMovieExample('Pulp.Fiction.1994')">Pulp Fiction</div>
-        <div class="movie-example" onclick="setMovieExample('The.Godfather.1972')">The Godfather</div>
-        <div class="movie-example" onclick="setMovieExample('Forrest.Gump.1994')">Forrest Gump</div>
-        <div class="movie-example" onclick="setMovieExample('The.Matrix.1999')">The Matrix</div>
+      <h3><i class="fas fa-lightbulb"></i> Popular Search Examples</h3>
+      <div class="file-examples">
+        <div class="file-example" onclick="setFileExample('Avengers.Endgame.2019')">Avengers Endgame</div>
+        <div class="file-example" onclick="setFileExample('Adobe.Photoshop.2024')">Adobe Photoshop</div>
+        <div class="file-example" onclick="setFileExample('Game.of.Thrones.S01')">Game of Thrones</div>
+        <div class="file-example" onclick="setFileExample('Harry.Potter.Complete.Collection')">Harry Potter Books</div>
+        <div class="file-example" onclick="setFileExample('Coldplay.Discography')">Coldplay Music</div>
+        <div class="file-example" onclick="setFileExample('Windows.11.ISO')">Windows 11</div>
+        <div class="file-example" onclick="setFileExample('Nature.Wallpapers.4K')">Nature Wallpapers</div>
+        <div class="file-example" onclick="setFileExample('Python.Programming.Book')">Python Programming</div>
       </div>
     </div>
-    
+   
     <div class="stats">
       <div class="stat-item">
         <div class="stat-number" id="searchCount">0</div>
@@ -645,75 +576,33 @@
         <div class="stat-label">Active Users</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number" id="movieCount">0</div>
-        <div class="stat-label">Movies Indexed</div>
+        <div class="stat-number" id="totalFiles">0</div>
+        <div class="stat-label">Files Indexed</div>
       </div>
     </div>
-
     <div class="recent-searches">
       <h4><i class="fas fa-history"></i> Recent Searches</h4>
       <div class="recent-search-tags" id="recentSearches">
         <!-- Recent searches will be populated here -->
       </div>
     </div>
-    
+   
     <div class="info-section">
       <h3><i class="fas fa-question-circle"></i> How to use:</h3>
-      <p>1. Select "Movies/TV Shows" from the dropdown (already selected)</p>
+      <p>1. Select file type from the dropdown (Movies/TV Shows selected by default)</p>
       <p>2. Choose your preferred search engine (Google recommended)</p>
-      <p>3. Enter movie name with year or TV show with season/episode</p>
+      <p>3. Enter file name with appropriate keywords</p>
       <p>4. Click Search to find direct download links</p>
     </div>
-    
+   
     <div class="footer">
-      <div class="footer-text">Cinematic • Fast • Professional | Made with <span style="color: #ff6b6b;">❤️</span> by <a href="https://www.instagram.com/sandeep_yadav_._._" target="_blank" style="color: #ffa36c; text-decoration: none;">Sandeep</a></div>
+      <div class="footer-text">Universal • Fast • Professional | Made with <span style="color: #ff6b6b;">❤️</span> by <a href="https://www.instagram.com/sandeep_yadav_._._" target="_blank" style="color: #ffa36c; text-decoration: none;">Sandeep</a></div>
     </div>
   </div>
 
-  <!-- Back Button -->
-  <button
-    type="button"
-    title="Back"
-    aria-label="Go back"
-    onclick="(function(){ if(window.history.length>1){ history.back(); } else if(document.referrer){ location.href = document.referrer; } else { location.href = '/'; } })();"
-    onkeydown="if(event.key==='Enter' || event.code==='Space'){ event.preventDefault(); (function(){ if(window.history.length>1){ history.back(); } else if(document.referrer){ location.href = document.referrer; } else { location.href = '/'; } })(); }"
-    onmouseenter="this.style.transform='translateY(-3px) scale(1.05)'; this.style.boxShadow='0 12px 24px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4)';"
-    onmouseleave="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3)';"
-    style="
-      position:fixed;
-      top:20px;
-      left:20px;
-      z-index:2147483647;
-      width:60px;
-      height:60px;
-      padding:0;
-      border-radius:50%;
-      border:none;
-      background:rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      box-shadow:0 8px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      -webkit-tap-highlight-color:transparent;
-      transition:transform .3s ease, box-shadow .3s ease;
-      color: #f0f0f0;
-    "
-  >
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-  </button>
-
-  <!-- Theme Toggle Button -->
-  <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
-    <i class="fas fa-moon"></i>
-  </button>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
+ 
   <script>
     // Initialize with default values
     document.addEventListener('DOMContentLoaded', function() {
@@ -721,39 +610,28 @@
       setEngine('google');
       updateStats();
       loadRecentSearches();
-      
-      // Initialize theme
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      setTheme(savedTheme);
-      
-      // Theme toggle functionality
-      document.getElementById('themeToggle').addEventListener('click', function() {
-        const currentTheme = document.body.getAttribute('data-theme') || 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-      });
     });
-
+    
     function setFiletype(fileType, buttonData, resType, glyph) {
-      var defaultString = 'Search for movies';
+      var defaultString = 'Search for any file';
       if (fileType==-1) {
         fileType="";
       }
       switch(glyph) {
         case 'film':
-          $("#query").prop('placeholder',defaultString+' e.g. The.Blacklist.S01.E01 or Avatar.2009');
+          $("#query").prop('placeholder',defaultString+' e.g. Avengers.2012 or Game.of.Thrones.S01');
           break;
         case 'music':
-          $("#query").prop('placeholder',defaultString+' e.g. K.Flay discography');
+          $("#query").prop('placeholder',defaultString+' e.g. Coldplay.Discography or artist_name');
           break;
         case 'book':
-          $("#query").prop('placeholder',defaultString+' e.g. 1985');
+          $("#query").prop('placeholder',defaultString+' e.g. Harry.Potter.Complete.Collection');
           break;
         case 'cd':
-          $("#query").prop('placeholder',defaultString+' e.g. GTA V');
+          $("#query").prop('placeholder',defaultString+' e.g. Adobe.Photoshop.2024 or software_name');
           break;
         case 'picture':
-          $("#query").prop('placeholder',defaultString+' e.g. Donald Trump');
+          $("#query").prop('placeholder',defaultString+' e.g. Nature.Wallpapers.4K');
           break;
         case 'asterisk':
           $("#query").prop('placeholder',defaultString);
@@ -764,24 +642,24 @@
       $("#ddbutton").html('<span class="glyphicon glyphicon-'+glyph+'" aria-hidden="true"></span> '+buttonData+' <span class="caret"></span>');
       $("#query").focus();
     }
-    
+   
     function setEngine(engine) {
       $("#engine").prop('value',engine);
       $("#egbutton").html('<span class="glyphicon glyphicon-search" aria-hidden="true"></span> '+engine+' <span class="caret"></span>');
       $("#query").focus();
     }
-    
-    function setMovieExample(movieName) {
-      document.getElementById('query').value = movieName;
+   
+    function setFileExample(fileName) {
+      document.getElementById('query').value = fileName;
       document.getElementById('query').focus();
     }
-    
+   
     function startSearch (engine = '') {
       var query = document.getElementById('query').value;
       var fileType = document.getElementById('fileType').value;
       var resType = document.getElementById('resType').value;
       var engine = document.getElementById('engine').value;
-      
+     
       if (!query) {
         // Add shake animation to input if empty
         $("#query").addClass('shake');
@@ -790,10 +668,10 @@
         }, 500);
         return;
       }
-      
+     
       // Save to recent searches
       saveToRecentSearches(query);
-      
+     
       if (fileType=="") {
         if(engine=="filepursuit") {
           fileType = "all";
@@ -820,57 +698,57 @@
           break;
       }
       console.log(url);
-      
+     
       // Update search count
       updateSearchCount();
-      
+     
       // Show loading animation
       const searchBtn = document.querySelector('.search-btn');
       const originalText = searchBtn.innerHTML;
       searchBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
       searchBtn.disabled = true;
-      
+     
       setTimeout(() => {
         window.open(url, '_blank');
         searchBtn.innerHTML = originalText;
         searchBtn.disabled = false;
       }, 1000);
     }
-    
+   
     function openDropdown(){
       $('#ddbutton').click();
     }
-    
+   
     // Recent searches functionality
     function saveToRecentSearches(query) {
       let recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
-      
+     
       // Remove if already exists
       recentSearches = recentSearches.filter(item => item !== query);
-      
+     
       // Add to beginning
       recentSearches.unshift(query);
-      
+     
       // Keep only last 5
       if (recentSearches.length > 5) {
         recentSearches = recentSearches.slice(0, 5);
       }
-      
+     
       localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
       loadRecentSearches();
     }
-    
+   
     function loadRecentSearches() {
       const recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
       const container = document.getElementById('recentSearches');
-      
+     
       container.innerHTML = '';
-      
+     
       if (recentSearches.length === 0) {
         container.innerHTML = '<p style="color: rgba(255,255,255,0.5); font-size: 14px;">No recent searches</p>';
         return;
       }
-      
+     
       recentSearches.forEach(query => {
         const tag = document.createElement('div');
         tag.className = 'search-tag';
@@ -882,58 +760,37 @@
         container.appendChild(tag);
       });
     }
-    
+   
     // Stats functionality
     function updateStats() {
       // Get current date for daily reset
       const today = new Date().toDateString();
       const lastReset = localStorage.getItem('lastReset');
-      
+     
       // Reset counts if it's a new day
       if (lastReset !== today) {
         localStorage.setItem('lastReset', today);
         localStorage.setItem('searchCount', '0');
       }
-      
+     
       // Get or initialize counts
       let searchCount = parseInt(localStorage.getItem('searchCount')) || 0;
       let fileCount = Math.floor(Math.random() * 10000) + 5000; // Simulated data
       let userCount = Math.floor(Math.random() * 1000) + 500; // Simulated data
-      let movieCount = Math.floor(Math.random() * 50000) + 25000; // Simulated data
-      
+      let totalFiles = Math.floor(Math.random() * 50000) + 25000; // Simulated data
+     
       // Update display
       document.getElementById('searchCount').textContent = searchCount;
       document.getElementById('fileCount').textContent = fileCount.toLocaleString();
       document.getElementById('userCount').textContent = userCount.toLocaleString();
-      document.getElementById('movieCount').textContent = movieCount.toLocaleString();
+      document.getElementById('totalFiles').textContent = totalFiles.toLocaleString();
     }
-    
+   
     function updateSearchCount() {
       let searchCount = parseInt(localStorage.getItem('searchCount')) || 0;
       searchCount++;
       localStorage.setItem('searchCount', searchCount.toString());
       document.getElementById('searchCount').textContent = searchCount;
-    }
-    
-    // Theme functionality
-    function setTheme(theme) {
-      document.body.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      
-      const themeIcon = document.querySelector('#themeToggle i');
-      if (theme === 'light') {
-        themeIcon.className = 'fas fa-sun';
-        document.body.style.background = 'linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("https://images.unsplash.com/photo-1489599809505-7c8e1c35b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")';
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.backgroundPosition = 'center';
-        document.body.style.backgroundAttachment = 'fixed';
-      } else {
-        themeIcon.className = 'fas fa-moon';
-        document.body.style.background = 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1489599809505-7c8e1c35b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")';
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.backgroundPosition = 'center';
-        document.body.style.backgroundAttachment = 'fixed';
-      }
     }
   </script>
 </body>
